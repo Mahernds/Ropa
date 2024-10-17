@@ -1,0 +1,179 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* Alinea el contenido verticalmente */
+    padding: 15px 20px;
+    background-color: #444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Elimina cualquier margen entre el header y el contenido */
+header, .carrusel-container {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* Alineación de la navegación */
+nav {
+    display: flex;
+    align-items: center;
+    color: #0000;
+      /* Asegura que todos los elementos estén a la misma altura */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;  /* Alinea los elementos dentro de la lista */
+    margin-right: 20px;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Elimina el margen del primer elemento */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000; /* Cambiado a negro */
+    font-size: 16px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center; /* Alinea el texto y los íconos verticalmente */
+}
+
+nav ul li a:hover {
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Carrusel */
+.carrusel-container {
+    position: relative;
+    max-width: 100%;
+    height: 500px;
+    margin: 0 auto; /* Elimina márgenes arriba y abajo */
+    overflow: hidden;
+}
+
+.carrusel-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carrusel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ocultar las flechas del carrusel */
+.prev, .next {
+    display: none; /* Elimina las flechas */
+}
+
+/* Texto del carrusel */
+.carrusel-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    text-align: center;
+    color: white;
+}
+
+.carrusel-text h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.carrusel-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.carrusel-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.carrusel-buttons .btn-shop {
+    padding: 15px 30px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+.carrusel-buttons .btn-shop:hover {
+    background-color: #555;
+}
+
+/* Productos */
+#productos {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.producto {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.producto h3 {
+    color: #333;
+}
+
+.producto p {
+    color: #666;
+}
+
+button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}

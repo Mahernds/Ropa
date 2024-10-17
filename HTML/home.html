@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Ropa</title>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body> 
+  <!-- Header con navegación adicional -->
+  <header>
+    <div class="logo">
+      <!--<h1>Nilo ⚡</h1> -->
+      <img src="imagenes/logo 1.webp" alt="Logo de Nilo" style="width: 4em; height: 4em;">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="HTML/home.html">Inicio</a></li>
+        <li><a href="HTML/cuenta.html">Cuenta👤</a></li>
+        <li><a href="HTML/#productos">Ropa</a></li>
+        <li><a href="HTML/accesorios.html">Accesorios</a></li>
+        <li><a href="HTML/arrito.html">Carrito 🛒 <span id="carrito-count">0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrusel con botones de navegación -->
+  <section class="carrusel-container">
+    <div class="carrusel-slide fade">
+      <img src="imagenes/foto1.jpg" style="width:100%" alt="Imagen 1">
+      <div class="carrusel-text">
+        <h2>THE ESSENTIALS</h2>
+        <p>Hit up our gym essentials, then hit the gym.</p>
+        <div class="carrusel-buttons">
+          <a href="accesorios.html" class="btn-shop">Accesorios</a>
+          <a href="#productos" class="btn-shop">Ropa</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Botones de anterior y siguiente -->
+    <a class="prev" onclick="moverCarrusel(-1)">&#10094;</a>
+    <a class="next" onclick="moverCarrusel(1)">&#10095;</a>
+  </section>
+
+  <!-- Main content -->
+  <main>
+    <section id="productos">
+      <h2>Productos Destacados</h2>
+      <div class="grid-container">
+        <div class="producto">
+          <img src="camisa.jpg" alt="Camisa Blanca">
+          <h3>Camisa Blanca</h3>
+          <p>$20.000</p>
+          <button onclick="agregarAlCarrito('Camisa Blanca', 20)">Añadir al carrito</button>
+        </div>
+        <div class="producto">
+          <img src="pantalon.jpg" alt="Pantalón Negro">
+          <h3>Pantalón Negro</h3>
+          <p>$30.000</p>
+          <button onclick="agregarAlCarrito('Pantalón Negro', 30)">Añadir al carrito</button>
+        </div>
+      </div>
+      <div id="mensaje" class="mensaje"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Mi Tienda de Ropa. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Mostrar el nombre del usuario si está logueado
+    document.addEventListener('DOMContentLoaded', function() {
+      const nombreUsuario = localStorage.getItem('nombreUsuario');  // Obtener el nombre guardado
+      const usuarioItem = document.getElementById('usuario-item');  // El elemento donde se mostrará el nombre
+
+      if (nombreUsuario) {
+        usuarioItem.textContent = nombreUsuario;  // Reemplazar "Cuenta" con el nombre del usuario
+      }
+    });
+  </script>
+
+  <script src="JS/Java.js"></script>
+  <script src="JS/carrusel.js"></script> <!-- Agregar JavaScript para el carrusel -->
+</body>
+</html>

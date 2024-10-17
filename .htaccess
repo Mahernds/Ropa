@@ -1,0 +1,6 @@
+Redirect 404 /test.html
+
+<IfModule mod_headers.c>
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.mercadopago.com https://*.google.com https://*.mlstatic.com https://js-agent.newrelic.com https://*.hotjar.com https://*.gstatic.com https://*.nr-data.net; object-src 'none';"
+</IfModule>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="CSS/carrito.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="imagenes/logo 1.webp" alt="Logo de Nilo" style="width: 4em; height: 4em;">
+      <!--<button class="vaciar-btn" onclick="vaciarCarrito()">Vaciar Carrito</button> -->
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Inicio</a></li>
+        <li><a href="carrito.html">Carrito 🛒 <span id="carrito-count">0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrito -->
+  <main>
+    <section id="carrito">
+      <div id="lista-carrito">
+        <!-- Aquí se cargarán los productos dinámicamente -->
+      </div>
+
+      <div class="resumen-carrito">
+        
+        <p>Calcular Envio: $<span id="envio">?</span></p>
+        <p>Total: $<span id="total">0</span></p>
+        <button class="btn-pagar" onclick="iniciarPago()">Pagar de forma segura</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- SDK MercadoPago.js -->
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+  <script>
+    // Configura el SDK de Mercado Pago con tu clave pública
+    const mp = new MercadoPago('APP_USR-2463be12-3cda-44ab-810b-f1d3d25de378', {
+      locale: 'es-AR' // Cambia el idioma según tu país
+    });
+
+    // Función para iniciar el proceso de pago
+    function iniciarPago() {
+      // Realiza una solicitud al archivo generar_preferencia.php para obtener el Preference ID
+      fetch('generar_preferencia.php')
+        .then(response => response.text()) // Recibe el Preference ID en texto
+        .then(preferenceId => {
+          // Inicia el checkout de Mercado Pago
+          mp.checkout({
+            preference: {
+              id: preferenceId // Asigna el Preference ID generado por PHP
+            },
+            autoOpen: true, // Abre automáticamente el checkout de Mercado Pago
+          });
+        })
+        .catch(error => console.error('Error al obtener el Preference ID:', error));
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Mi Tienda de Ropa. Todos los derechos reservados.</p>
+  </footer>
+  
+  <script src="JS/carrito.js"></script>
+</body>
+</html>
